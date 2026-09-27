@@ -7,9 +7,7 @@ function ProductForm({ onDescriptionGenerated, onLoading, onError }) {
 
   const handleFeatureChange = (index, value) => {
     const updatedFeatures = [...features];
-
     updatedFeatures[index] = value;
-
     setFeatures(updatedFeatures);
   };
 
@@ -54,9 +52,7 @@ function ProductForm({ onDescriptionGenerated, onLoading, onError }) {
     <section className="form-card">
       <div className="card-heading">
         <span className="eyebrow">PRODUCT DETAILS</span>
-
         <h2>Tell us about your product</h2>
-
         <p>
           Add the product name and key features. AI will turn them
           into polished, customer-ready description.

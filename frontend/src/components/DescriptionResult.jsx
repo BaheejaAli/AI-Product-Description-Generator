@@ -1,8 +1,4 @@
-function DescriptionResult({
-  description,
-  loading,
-  error,
-}) {
+function DescriptionResult({description,loading,error}) {
   return (
     <section className="result-card">
       <div className="card-heading">
