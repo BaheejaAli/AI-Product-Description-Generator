@@ -167,8 +167,10 @@ ai-product-description-generator/
 
 ### 1. Clone the Repository
 
+```bash
 git clone https://github.com/BaheejaAli/AI-Product-Description-Generator.git
 cd AI-Product-Description-Generator
+```
 
 ### 2. Backend Setup
 
