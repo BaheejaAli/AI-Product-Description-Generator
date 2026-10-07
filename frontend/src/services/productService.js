@@ -20,5 +20,5 @@ export async function generateProductDescription(productName, features) {
     );
   }
 
-  return data.description;
+  return data;
 }

@@ -30,16 +30,16 @@ Important:
 Return only the planning information.
 """
 
-def build_executor_prompt(product_name, features, plan, context):
+def build_executor_prompt(product_name, features, plan):
     features_text = "\n".join(
         f"- {feature}" for feature in features
     )
 
     return f"""
-You are a professional product copywriter.
+You are a professional product copywriter and product research assistant.
 
-Create a product description using the original product
-information and the plan created by the Planner.
+Your task is to create a product description based on the user's
+product information and the Planner's plan.
 
 Product Name:
 {product_name}
@@ -50,25 +50,23 @@ Features:
 Planner's Plan:
 {plan}
 
-External Product Context:
-{context}
+You have access to a tool called 'search_products'.
+
+Use the 'search_products' tool to retrieve relevant external
+product information before generating the final description.
+
+Use the retrieved information only as supporting context.
+Do not treat retrieved products as the user's exact product.
+Do not copy another product's specifications into the user's product.
 
 Requirements:
 - Write 80–120 words.
 - Mention the exact product name.
 - Follow the Planner's main writing focus.
-- Include every provided feature in the description.
-- Use each provided feature explicitly, preferably using the original feature wording.
+- Include every provided feature.
 - Preserve feature names and specifications accurately.
-- Highlight the important features naturally.
-- Use professional and customer-friendly language.
-- Do not invent features, specifications, benefits, performance claims, or product characteristics.
+- Do not invent features or specifications.
+- Use external product information only when relevant.
+- Do not mention price or rating in the description unless requested.
 - Return only the product description.
-- Use relevant information from the external context when appropriate.
-- Incorporate relevant external information naturally into the description.
-- Do not copy the external context directly.
-- Do not treat external product specifications as specifications of the user's product.
-- Do not invent claims based on price or rating.
-- Do not mention price or rating unless the user asks for them.
-- If external context conflicts with the user's provided features, always follow the user's provided features.
 """

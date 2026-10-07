@@ -8,6 +8,8 @@ import "./App.css";
 
 function App() {
   const [description, setDescription] = useState("");
+  const [productName, setProductName] = useState("");
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -31,13 +33,20 @@ function App() {
 
         <section className="workspace">
           <ProductForm
-            onDescriptionGenerated={setDescription}
+            productName={productName}
+            onProductNameChange={setProductName}
+            onDescriptionGenerated={(result) => {
+              setDescription(result.description);
+              setProducts(result.products || []);
+            }}
             onLoading={setLoading}
             onError={setError}
           />
 
           <DescriptionResult
+            productName={productName}
             description={description}
+            products={products}
             loading={loading}
             error={error}
           />

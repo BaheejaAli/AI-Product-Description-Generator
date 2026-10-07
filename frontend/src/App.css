@@ -622,3 +622,84 @@ button {
 
   white-space: pre-wrap;
 }
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.product-details span {
+  display: block;
+}
+
+.product-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+/* =========================================================
+   PRODUCT RESULTS
+   ========================================================= */
+
+.products-section {
+  margin-top: 30px;
+}
+
+.products-section > h3 {
+  margin: 0 0 16px;
+  color: #172033;
+  font-size: 18px;
+  font-weight: 750;
+}
+
+.products-list {
+  display: grid;
+  gap: 16px;
+}
+
+.product-card {
+  padding: 20px;
+  border: 1px solid #e3e6f0;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 5px 16px rgba(31, 41, 80, 0.05);
+}
+
+.product-card h4 {
+  margin: 0 0 10px;
+  color: #172033;
+  font-size: 16px;
+  font-weight: 750;
+}
+
+.product-card > p {
+  margin: 0;
+  color: #626b80;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #eef0f5;
+}
+
+.product-details span {
+  display: flex;
+  gap: 8px;
+  color: #626b80;
+  font-size: 13px;
+}
+
+.product-details strong {
+  color: #293248;
+  font-weight: 700;
+}
+

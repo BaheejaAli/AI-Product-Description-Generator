@@ -46,7 +46,8 @@ def generate_description(request):
 
     return Response(
         {
-            "description": result["description"]
+            "description": result["description"],
+            "products": result["products"],
         },
         status=status.HTTP_200_OK
     )

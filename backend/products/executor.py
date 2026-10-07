@@ -5,14 +5,12 @@ from .prompts import build_executor_prompt
 def generate_product_description_with_plan(
     product_name,
     features,
-    plan,
-    context
+    plan
 ):
     prompt = build_executor_prompt(
         product_name,
         features,
-        plan,
-        context
+        plan
     )
 
     return generate_product_description(prompt)

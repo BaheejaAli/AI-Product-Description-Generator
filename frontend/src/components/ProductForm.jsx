@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { generateProductDescription } from "../services/productService";
 
-function ProductForm({ onDescriptionGenerated, onLoading, onError }) {
-  const [productName, setProductName] = useState("");
+function ProductForm({ productName,onDescriptionGenerated,onProductNameChange, onLoading, onError }) {
   const [features, setFeatures] = useState([""]);
 
   const handleFeatureChange = (index, value) => {
@@ -35,12 +34,13 @@ function ProductForm({ onDescriptionGenerated, onLoading, onError }) {
     try {
       onLoading(true);
 
-      const description = await generateProductDescription(
+      const result = await generateProductDescription(
         productName.trim(),
         cleanedFeatures
       );
+      console.log("BACKEND RESULT:", result);
 
-      onDescriptionGenerated(description);
+      onDescriptionGenerated(result);
     } catch (error) {
       onError(error.message);
     } finally {
@@ -70,7 +70,7 @@ function ProductForm({ onDescriptionGenerated, onLoading, onError }) {
           placeholder="e.g. Wireless Bluetooth Headphones"
           value={productName}
           onChange={(event) =>
-            setProductName(event.target.value)
+            onProductNameChange(event.target.value)
           }
         />
       </div>
