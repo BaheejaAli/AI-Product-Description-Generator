@@ -30,7 +30,7 @@ Important:
 Return only the planning information.
 """
 
-def build_executor_prompt(product_name, features, plan):
+def build_executor_prompt(product_name, features, plan, context):
     features_text = "\n".join(
         f"- {feature}" for feature in features
     )
@@ -50,6 +50,9 @@ Features:
 Planner's Plan:
 {plan}
 
+External Product Context:
+{context}
+
 Requirements:
 - Write 80–120 words.
 - Mention the exact product name.
@@ -59,6 +62,13 @@ Requirements:
 - Preserve feature names and specifications accurately.
 - Highlight the important features naturally.
 - Use professional and customer-friendly language.
-- Do not invent features or specifications.
+- Do not invent features, specifications, benefits, performance claims, or product characteristics.
 - Return only the product description.
+- Use relevant information from the external context when appropriate.
+- Incorporate relevant external information naturally into the description.
+- Do not copy the external context directly.
+- Do not treat external product specifications as specifications of the user's product.
+- Do not invent claims based on price or rating.
+- Do not mention price or rating unless the user asks for them.
+- If external context conflicts with the user's provided features, always follow the user's provided features.
 """
